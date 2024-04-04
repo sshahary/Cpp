@@ -6,7 +6,7 @@
 /*   By: sshahary <sshahary@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/04 10:31:37 by sshahary          #+#    #+#             */
-/*   Updated: 2024/04/04 10:55:07 by sshahary         ###   ########.fr       */
+/*   Updated: 2024/04/04 12:09:09 by sshahary         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ std::string promptUserForInput(const std::string& prompt)
 	std::string input;
 	std::cout << prompt << ": ";
 	std::getline(std::cin, input);
+	// if (!(std::getline(std::cin, input)))         i have to protect this
+	// 	std::cout << "invalid input" << std::endl;
 	return input;
 }
 
