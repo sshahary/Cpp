@@ -6,43 +6,27 @@
 /*   By: sshahary <sshahary@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/04 10:31:37 by sshahary          #+#    #+#             */
-/*   Updated: 2024/05/13 16:14:27 by sshahary         ###   ########.fr       */
+/*   Updated: 2024/05/14 14:52:05 by sshahary         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "phonebook.class.hpp"
 #include "contact.class.hpp"
 
-// std::string promptUserForInput(const std::string& prompt)
-// {
-// 	std::string input;
-// 	std::cout << prompt << ": ";
-// 	std::getline(std::cin, input);
-// 	// if (!(std::getline(std::cin, input)))         i have to protect this
-// 	// 	std::cout << "invalid input" << std::endl;
-// 	return input;
-// }
-
 std::string promptUserForInput(const std::string& prompt)
 {
-    std::string input;
-    std::cout << prompt << ": ";
+	std::string input;
+	std::cout << prompt << ": ";
+	// while (!std::getline(std::cin, input) && input.empty())
+	// {
+	// 	std::cout << "invalid input" << std::endl;
+	// }
+	
+	std::getline(std::cin, input);
+	if (input.empty())
+		std::cout << "invalid input" << std::endl;
+	return input;
 
-    if (!std::getline(std::cin, input)) {
-        if (std::cin.eof()) {
-            std::cout << "EOF encountered. Exiting..." << std::endl;
-            // You can handle EOF here, for example, by returning an empty string
-            return "";
-        }
-        else {
-            std::cout << "Error reading input. Exiting..." << std::endl;
-            // Handle other errors if needed
-            // For simplicity, you can also just return an empty string
-            return "";
-        }
-    }
-
-    return input;
 }
 
 void executeCommand(PhoneBook& phoneBook, const std::string& command)
@@ -101,7 +85,7 @@ int main()
 			std::cin.clear(); // Clear error flags
 			std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); // Discard input buffer
 			std::cout << "Invalid input. Please enter a valid command." << std::endl;
-			continue; // Prompt again for input
+			break; // Prompt again for input
 		}
 
 		executeCommand(phoneBook, command);

@@ -6,7 +6,7 @@
 /*   By: sshahary <sshahary@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/04 10:07:27 by sshahary          #+#    #+#             */
-/*   Updated: 2024/04/04 10:49:18 by sshahary         ###   ########.fr       */
+/*   Updated: 2024/05/14 15:07:47 by sshahary         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@
 #include <string>
 #include <vector>
 #include <iomanip>
-#include <algorithm>
 #include <limits>
 #include "contact.class.hpp"
 
