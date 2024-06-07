@@ -6,7 +6,7 @@
 /*   By: sshahary <sshahary@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/04 10:07:27 by sshahary          #+#    #+#             */
-/*   Updated: 2024/05/14 15:07:47 by sshahary         ###   ########.fr       */
+/*   Updated: 2024/06/07 21:06:07 by sshahary         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,52 +15,24 @@
 
 #include <iostream>
 #include <string>
-#include <vector>
 #include <iomanip>
-#include <limits>
 #include "contact.class.hpp"
 
 class PhoneBook {
 private:
-	std::vector<Contact> contacts;
+    Contact contact[8];
+    int numContacts;
+    int nextIndex;
+    std::string truncateString(const std::string& str, size_t width = 10) const;
 
 public:
-	void addContact(const Contact& contact) {
-		contacts.push_back(contact);
-	}
 
-	void displayContacts() const {
-		std::cout << "Phone Book:" << std::endl;
-		for (size_t i = 0; i < contacts.size(); ++i) {
-			std::cout << "|" << std::setw(10) << std::right << i
-					  << "|" << std::setw(10) << std::right << truncateString(contacts[i].getFirstName())
-					  << "|" << std::setw(10) << std::right << truncateString(contacts[i].getLastName())
-					  << "|" << std::setw(10) << std::right << truncateString(contacts[i].getNickname())
-					  << "|" << std::endl;
-		}
-	}
+    PhoneBook() : numContacts(0), nextIndex(0) {};
 
-	void displayContactDetails(size_t index) const {
-		if (index < contacts.size()) {
-			const Contact& contact = contacts[index];
-			std::cout << "First Name: " << contact.getFirstName() << std::endl;
-			std::cout << "Last Name: " << contact.getLastName() << std::endl;
-			std::cout << "Nickname: " << contact.getNickname() << std::endl;
-			std::cout << "Phone Number: " << contact.getPhoneNumber() << std::endl;
-			std::cout << "Darkest Secret: " << contact.getDarkestSecret() << std::endl;
-		} else {
-			std::cout << "Error: Index out of range." << std::endl;
-		}
-	}
-
-private:
-	std::string truncateString(const std::string& str, size_t length = 10) const {
-		if (str.length() <= length) {
-			return str;
-		} else {
-			return str.substr(0, length - 1) + ".";
-		}
-	}
+    void addContact(const Contact& contact);
+    void displayContacts() const;
+    void displayContactDetails(int index) const;
+    int getNumContacts() const { return numContacts; }
 };
 
 

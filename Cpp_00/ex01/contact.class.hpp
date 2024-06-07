@@ -6,7 +6,7 @@
 /*   By: sshahary <sshahary@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/04 10:30:12 by sshahary          #+#    #+#             */
-/*   Updated: 2024/04/04 10:49:24 by sshahary         ###   ########.fr       */
+/*   Updated: 2024/06/07 21:02:27 by sshahary         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ private:
 	std::string darkestSecret;
 
 public:
+
 	Contact(const std::string& firstName, const std::string& lastName,
 			const std::string& nickname, const std::string& phoneNumber,
 			const std::string& darkestSecret)

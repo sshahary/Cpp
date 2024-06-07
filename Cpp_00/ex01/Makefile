@@ -6,13 +6,13 @@
 #    By: sshahary <sshahary@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/04 10:40:14 by sshahary          #+#    #+#              #
-#    Updated: 2024/04/04 10:42:00 by sshahary         ###   ########.fr        #
+#    Updated: 2024/06/07 20:32:03 by sshahary         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CXX = g++
 CXXFLAGS = -std=c++98 -Wall -Wextra -Werror
-SRC = phonebook.cpp
+SRC = phonebook.cpp contact.cpp
 OBJ = $(SRC:.cpp=.o)
 EXEC = phonebook
 
