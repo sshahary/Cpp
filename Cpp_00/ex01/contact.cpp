@@ -10,54 +10,27 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "phonebook.class.hpp"
-#include "contact.class.hpp"
+#include "contact.hpp"
 
+Contact::Contact() {}
+Contact::~Contact() {}
 
-std::string PhoneBook::truncateString(const std::string& str, size_t width) const {
-        if (str.length() > width) {
-            return str.substr(0, width - 3) + "...";
-        }
-        return str;
-    }
+std::string Contact::getFirstName() const { return firstName; }
+std::string Contact::getLastName() const { return lastName; }
+std::string Contact::getNickname() const { return nickname; }
+std::string Contact::getPhoneNumber() const { return phoneNumber; }
+std::string Contact::getDarkestSecret() const { return darkestSecret; }
 
-void PhoneBook::displayContacts() const {
-        std::cout << "Phone Book:" << std::endl;
-        for (int i = 0; i < numContacts; ++i) {
-            int index = (nextIndex + i) % MAX_CONTACTS; // Calculate the actual index of the contact
-            std::cout << "|" << std::right << i
-                      << "|" << std::right << truncateString(contacts[index].getFirstName())
-                      << "|" << std::right << truncateString(contacts[index].getLastName())
-                      << "|" << std::right << truncateString(contacts[index].getNickname())
-                      << "|" << std::endl;
-        }
-    }
+void Contact::setFirstName(const std::string &fn) { firstName = fn; }
+void Contact::setLastName(const std::string &ln) { lastName = ln; }
+void Contact::setNickname(const std::string &nn) { nickname = nn; }
+void Contact::setPhoneNumber(const std::string &pn) { phoneNumber = pn; }
+void Contact::setDarkestSecret(const std::string &ds) { darkestSecret = ds; }
 
-void PhoneBook::displayContactDetails(int index) const
-{
-        if (index >= 0 && index < numContacts) {
-            int actualIndex = (nextIndex + index) % MAX_CONTACTS;
-            const Contact& contact = contacts[actualIndex];
-            std::cout << "First Name: " << contact.getFirstName() << std::endl;
-            std::cout << "Last Name: " << contact.getLastName() << std::endl;
-            std::cout << "Nickname: " << contact.getNickname() << std::endl;
-            std::cout << "Phone Number: " << contact.getPhoneNumber() << std::endl;
-            std::cout << "Darkest Secret: " << contact.getDarkestSecret() << std::endl;
-        } else {
-            std::cout << "Error: Invalid index." << std::endl;
-        }
-}
-
-void PhoneBook::addContact(const Contact& contact)
-{
-        if (numContacts < MAX_CONTACTS)
-		{
-            contacts[nextIndex++] = contact;
-            numContacts++;
-        }
-        else
-        {
-            contacts[nextIndex % MAX_CONTACTS] = contact;
-            nextIndex = (nextIndex + 1) % MAX_CONTACTS;
-        }
+void Contact::set_contact(const std::string &fn, const std::string &ln, const std::string &nn, const std::string &pn, const std::string &ds) {
+    firstName = fn;
+    lastName = ln;
+    nickname = nn;
+    phoneNumber = pn;
+    darkestSecret = ds;
 }

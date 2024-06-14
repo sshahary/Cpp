@@ -12,7 +12,7 @@
 
 CXX = g++
 CXXFLAGS = -std=c++98 -Wall -Wextra -Werror
-SRC = phonebook.cpp contact.cpp
+SRC = phonebook.cpp contact.cpp main.cpp
 OBJ = $(SRC:.cpp=.o)
 EXEC = phonebook
 
