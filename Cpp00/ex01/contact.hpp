@@ -41,4 +41,4 @@ private:
     std::string darkestSecret;
 };
 
-#endif // CONTACT_HPP
+#endif

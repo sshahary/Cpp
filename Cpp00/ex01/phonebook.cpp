@@ -17,14 +17,17 @@
 PhoneBook::PhoneBook() : numContacts(0) {}
 PhoneBook::~PhoneBook() {}
 
-std::string PhoneBook::truncateString(const std::string& str, size_t width) const {
-    if (str.length() > width) {
+std::string PhoneBook::truncateString(const std::string& str, size_t width) const
+{
+    if (str.length() > width)
+    {
         return str.substr(0, width - 1) + ".";
     }
     return str;
 }
 
-void PhoneBook::displayContacts() const {
+void PhoneBook::displayContacts() const
+{
     std::cout << "Phone Book:" << std::endl;
     std::cout << "| Index | First Name | Last Name | Nickname  |" << std::endl;
     std::cout << "---------------------------------------------" << std::endl;
@@ -37,7 +40,8 @@ void PhoneBook::displayContacts() const {
     }
 }
 
-void PhoneBook::displayContactDetails(int index) const {
+void PhoneBook::displayContactDetails(int index) const
+{
     if (index >= 0 && index < numContacts) {
         const Contact &contact = contacts[index];
         std::cout << "First Name: " << contact.getFirstName() << std::endl;
@@ -50,7 +54,8 @@ void PhoneBook::displayContactDetails(int index) const {
     }
 }
 
-std::string promptUserForInput(const std::string& prompt) {
+std::string promptUserForInput(const std::string& prompt)
+{
     std::string input;
     while (true) {
         std::cout << prompt << ": ";
@@ -60,16 +65,20 @@ std::string promptUserForInput(const std::string& prompt) {
             std::cout<<std::endl;
             std::cin.clear();
             clearerr(stdin);
+            exit(EXIT_SUCCESS);
         }
         if (!input.empty())
+        {
             break;
+        }
         std::cout << "Invalid input. Please try again." << std::endl;
     }
     return input;
 }
 
 
-void PhoneBook::addContact() {
+void PhoneBook::addContact()
+{
     std::string firstName = promptUserForInput("Enter first name");
     std::string lastName = promptUserForInput("Enter last name");
     std::string nickname = promptUserForInput("Enter nickname");
@@ -83,11 +92,11 @@ void PhoneBook::addContact() {
     //     numContacts = 7;  // Adjust to maintain 8 contacts.
     // }
     // contacts[numContacts].set_contact(firstName, lastName, nickname, phoneNumber, darkestSecret);
-    if (numContacts < 8) {
+    if (numContacts < 8)
+    {
         contacts[numContacts].set_contact(firstName, lastName, nickname, phoneNumber, darkestSecret);
         numContacts++;
     }
     else
         contacts[0].set_contact(firstName, lastName, nickname, phoneNumber, darkestSecret);
-
 }
