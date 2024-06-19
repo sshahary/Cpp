@@ -15,6 +15,9 @@
 
 #include "contact.hpp"
 #include <string>
+#include <cstdio>
+#include <iostream>
+#include <iomanip>
 
 class PhoneBook {
 private:

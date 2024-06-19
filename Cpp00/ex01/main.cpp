@@ -12,8 +12,18 @@
 
 #include "phonebook.hpp"
 #include <iostream>
-#include <limits>
 
+int isString(std::string command)
+{
+    int index;
+
+    if (command.length() < 1 || command.length() > 1)
+        return (-1);
+    index = command[0] - '0';
+    if (index >= 0 && index <= 7)
+        return (index);
+    return (-1);
+}
 
 void executeCommand(PhoneBook& phoneBook, const std::string& command)
 {
@@ -26,9 +36,12 @@ void executeCommand(PhoneBook& phoneBook, const std::string& command)
     {
         phoneBook.displayContacts();
         int index;
-        std::cout << "Enter the index of the contact to display: ";
-        std::cin >> index;
-        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+        index = isString(promptUserForInput("Enter the index of the contact to display"));
+        if (index == -1)
+        {
+            std::cout << "Invalid Index"<<std::endl;
+            return ;
+        }
         phoneBook.displayContactDetails(index);
     }
     else if (command == "EXIT")

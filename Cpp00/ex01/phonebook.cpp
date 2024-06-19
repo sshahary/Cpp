@@ -11,8 +11,7 @@
 /* ************************************************************************** */
 
 #include "phonebook.hpp"
-#include <iostream>
-#include <iomanip>
+
 
 PhoneBook::PhoneBook() : numContacts(0) {}
 PhoneBook::~PhoneBook() {}
@@ -65,7 +64,8 @@ std::string promptUserForInput(const std::string& prompt)
             std::cout<<std::endl;
             std::cin.clear();
             clearerr(stdin);
-            exit(EXIT_SUCCESS);
+            // return(NULL);
+            // continue;
         }
         if (!input.empty())
         {
@@ -94,9 +94,9 @@ void PhoneBook::addContact()
     // contacts[numContacts].set_contact(firstName, lastName, nickname, phoneNumber, darkestSecret);
     if (numContacts < 8)
     {
-        contacts[numContacts].set_contact(firstName, lastName, nickname, phoneNumber, darkestSecret);
+        contacts[numContacts].setContact(firstName, lastName, nickname, phoneNumber, darkestSecret);
         numContacts++;
     }
     else
-        contacts[0].set_contact(firstName, lastName, nickname, phoneNumber, darkestSecret);
+        contacts[0].setContact(firstName, lastName, nickname, phoneNumber, darkestSecret);
 }

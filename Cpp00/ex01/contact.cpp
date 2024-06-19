@@ -27,7 +27,7 @@ void Contact::setNickname(const std::string &nn) { nickname = nn; }
 void Contact::setPhoneNumber(const std::string &pn) { phoneNumber = pn; }
 void Contact::setDarkestSecret(const std::string &ds) { darkestSecret = ds; }
 
-void Contact::set_contact(const std::string &fn, const std::string &ln, const std::string &nn, const std::string &pn, const std::string &ds) {
+void Contact::setContact(const std::string &fn, const std::string &ln, const std::string &nn, const std::string &pn, const std::string &ds) {
     firstName = fn;
     lastName = ln;
     nickname = nn;

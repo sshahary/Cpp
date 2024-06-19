@@ -31,7 +31,7 @@ public:
     void setNickname(const std::string &nickname);
     void setPhoneNumber(const std::string &phoneNumber);
     void setDarkestSecret(const std::string &darkestSecret);
-    void set_contact(const std::string &fn, const std::string &ln, const std::string &nn, const std::string &pn, const std::string &ds);
+    void setContact(const std::string &fn, const std::string &ln, const std::string &nn, const std::string &pn, const std::string &ds);
 
 private:
     std::string firstName;
